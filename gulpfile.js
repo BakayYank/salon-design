@@ -43,6 +43,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/mmenu/js/jquery.mmenu.all.min.js',
 		'app/js/common.js', // Всегда в конце
 		])
 	.pipe(concat('scripts.min.js'))
@@ -54,7 +55,7 @@ gulp.task('js', function() {
 gulp.task('imagemin', function() {
 	return gulp.src('app/img/**/*')
 	.pipe(cache(imagemin())) // Cache Images
-	.pipe(gulp.dest('dist/img')); 
+	.pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('removedist', function() { return del(['dist'], { force: true }) });
